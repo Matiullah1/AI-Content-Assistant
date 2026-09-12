@@ -39,7 +39,7 @@ if st.button("Generate Content", type="primary", use_container_width=True):
     if not topic.strip():
         st.warning("Please enter a topic before generating content.")
     else:
-        prompt = f""" You are an expert content manager and copywriter.
+        prompt = f"""You are an expert content manager and copywriter.
 Create a complete post based on these requirements:
 - Content Type: {content_type}
 - Platform: {platform}
@@ -55,8 +55,9 @@ Output structure required:
 
         with st.spinner("Generating post..."):
             try:
+                # Updated model identifier to an active model
                 response = client.chat.completions.create(
-                    model="llama-3.1-70b-versatile",
+                    model="llama-3.3-70b-versatile",
                     messages=[{"role": "user", "content": prompt}],
                     temperature=0.7,
                 )
